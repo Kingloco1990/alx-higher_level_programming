@@ -1,1 +1,1 @@
-README file for the 0x13. JavaScript - Objects, Scopes and Closures project
+README file for the alx high level programming repo
