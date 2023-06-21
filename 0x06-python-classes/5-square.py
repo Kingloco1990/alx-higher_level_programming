@@ -7,12 +7,7 @@ methods: area and my_print as well as getters & setters
 class Square:
     """Represents a square"""
     def __init__(self, size=0):
-        if not isinstance(size, int):
-            raise TypeError("size must be an integer")
-        elif size < 0:
-            raise ValueError("size must be >= 0")
-        else:
-            self.__size = size
+        self.__size = size
 
     def area(self):
         """Returns the area of the Square"""
@@ -32,7 +27,6 @@ class Square:
             raise ValueError("size must be >= 0")
         else:
             self.__size = value
-            return self.__size
 
     def my_print(self):
         """ Prints in stdout the square with the character #"""
