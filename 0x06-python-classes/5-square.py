@@ -9,10 +9,6 @@ class Square:
     def __init__(self, size=0):
         self.size = size
 
-    def area(self):
-        """Returns the area of the Square"""
-        return self.__size ** 2
-
     @property
     def size(self):
         """Getter of the private attribute size"""
@@ -27,6 +23,10 @@ class Square:
             raise ValueError("size must be >= 0")
         else:
             self.__size = value
+
+    def area(self):
+        """Returns the area of the Square"""
+        return self.__size ** 2
 
     def my_print(self):
         """Prints in stdout the square with the character #"""
