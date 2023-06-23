@@ -7,11 +7,7 @@ getters & setters
 class Square:
     """Represents a square"""
     def __init__(self, size=0):
-        self.__size = size
-
-    def area(self):
-        """Method to get the area of the Square"""
-        return self.__size ** 2
+        self.size = size
 
     @property
     def size(self):
@@ -27,3 +23,8 @@ class Square:
             raise ValueError("size must be >= 0")
         else:
             self.__size = value
+            return self.__size
+
+    def area(self):
+        """Method to get the area of the Square"""
+        return self.__size ** 2
