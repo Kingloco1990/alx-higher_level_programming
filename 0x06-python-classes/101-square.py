@@ -67,6 +67,3 @@ class Square:
             for i in range(self.__size):
                 result += " " * self.__position[0] + "#" * self.__size + "\n"
             return result.rstrip("\n")
-            # returns the result string after removing any trailing newline
-            # characters ("\n") using the rstrip()
-
