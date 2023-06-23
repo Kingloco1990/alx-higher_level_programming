@@ -11,10 +11,6 @@ class Square:
         self.size = size
         self.position = position
 
-    def area(self):
-        """Returns the area of the Square"""
-        return self.__size ** 2
-
     @property
     def size(self):
         """Getter of the private attribute size"""
@@ -30,16 +26,6 @@ class Square:
         else:
             self.__size = value
 
-    def my_print(self):
-        """ Prints in stdout the square with the character #"""
-        if self.__size == 0:
-            print()
-        else:
-            for i in range(self.__position[1]):
-                print()
-            for i in range(self.__size):
-                print(" " * self.__position[0] + "#" * self.__size)
-
     @property
     def position(self):
         """Getter of the private attribute position"""
@@ -54,3 +40,17 @@ class Square:
             raise TypeError("position must be a tuple of 2 positive integers")
         else:
             self.__position = value
+
+    def area(self):
+        """Returns the area of the Square"""
+        return self.__size ** 2
+
+    def my_print(self):
+        """ Prints in stdout the square with the character #"""
+        if self.__size == 0:
+            print()
+        else:
+            for i in range(self.__position[1]):
+                print()
+            for i in range(self.__size):
+                print(" " * self.__position[0] + "#" * self.__size)
