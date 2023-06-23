@@ -8,7 +8,7 @@ argument. Also checks if the size arg has a valid value.
 
 
 class Node():
-    """Node Class."""
+    """Represents a Node"""
     def __init__(self, data, next_node=None):
         """Initialization of Node Class"""
         self.data = data
