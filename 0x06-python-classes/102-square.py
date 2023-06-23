@@ -51,4 +51,3 @@ class Square:
     def __le__(self, other):
         """ Returns the results of comparing two areas with (<=)"""
         return self.area() <= other.area()
-
