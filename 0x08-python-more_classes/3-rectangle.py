@@ -58,7 +58,7 @@ class Rectangle:
         """
         return self.__height
 
-    @width.setter
+    @height.setter
     def height(self, value):
         """
         Set the height of the rectangle.
@@ -112,4 +112,3 @@ class Rectangle:
                 if j == self.__width - 1 and i != self.__height - 1:
                     rect.append('\n')
         return ("".join(rect))
-
