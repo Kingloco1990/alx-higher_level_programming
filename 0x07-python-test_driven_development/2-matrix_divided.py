@@ -42,6 +42,4 @@ def matrix_divided(matrix, div):
         raise ZeroDivisionError("division by zero")
 
     # Divide each element of the matrix by div and round to 2 decimal places
-    new_matrix = [[round(element / div, 2) for element in row]
-                  for row in matrix]
-    return new_matrix
+    return ([list(map(lambda x: round(x / div, 2), row)) for row in matrix])
