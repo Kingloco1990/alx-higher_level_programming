@@ -22,7 +22,8 @@ def matrix_divided(matrix, div):
         The result is rounded to 2 decimal places.
     """
     # Check if matrix is a list of lists of integers or floats
-    if not all(isinstance(row, list) for row in matrix) or \
+    if not isinstance(matrix, list) or matrix == [] or\
+        not all(isinstance(row, list) for row in matrix) or\
         not all(isinstance(element, (int, float)) for row in matrix
                 for element in row) or matrix == []:
         raise TypeError(
@@ -42,4 +43,6 @@ def matrix_divided(matrix, div):
         raise ZeroDivisionError("division by zero")
 
     # Divide each element of the matrix by div and round to 2 decimal places
-    return ([list(map(lambda x: round(x / div, 2), row)) for row in matrix])
+    new_matrix = [[round(element / div, 2) for element in row]
+                  for row in matrix]
+    return new_matrix
