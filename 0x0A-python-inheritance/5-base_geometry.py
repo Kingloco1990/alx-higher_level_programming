@@ -1,9 +1,15 @@
 #!/usr/bin/python3
 """
-Contains definition of the empty class BaseGeometry
+This module defines the BaseGeometry class, which serves as a base class
+for geometric operations.
 """
 
 
-class BaseGeometry():
-    """Definition of empty class BaseGeometry"""
+class BaseGeometry:
+    """
+    The BaseGeometry class is an empty class that serves as a base for
+    geometric operations. It provides no functionality and is meant to
+    be subclassed.
+    """
     pass
+
