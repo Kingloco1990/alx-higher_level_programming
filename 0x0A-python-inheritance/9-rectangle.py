@@ -1,37 +1,44 @@
 #!/usr/bin/python3
 """
-Contains definition of class Reactangle that inherits from BaseGeometry.
+This module defines the Rectangle class that inherits from the
+BaseGeometry class.
 """
-
-BaseGeometry = __import__('7-base_geometry').BaseGeometry
+BaseGeometry = __import__('8-rectangle').BaseGeometry
 
 
 class Rectangle(BaseGeometry):
-    """Defnifition of class Rectangle that inherits from BaseGeometry.
-       Attributes:
-            width (int): width of the rectangle.
-            height (int) height of the rectangle.
     """
-
+    This class represents a rectangle and inherits from the
+    BaseGeometry class.
+    """
     def __init__(self, width, height):
-        """Initializes an instance of class Rectangle"""
+        """
+        Initializes a Rectangle object with the given width and height.
 
+        Args:
+            width (int): The width of the rectangle.
+            height (int): The height of the rectangle.
+        """
         self.integer_validator("width", width)
-        self.integer_validator("height", height)
-
         self.__width = width
-
+        self.integer_validator("heigth", height)
         self.__height = height
 
     def area(self):
-        """Returns are of the rectangle"""
+        """
+        Calculates and returns the area of the rectangle.
 
-        area = self.__width * self.__height
-        return area
+        Returns:
+            int: The area of the rectangle.
+        """
+        return (self.__width * self.__height)
 
     def __str__(self):
         """
-        Returns string representation of an instance of class rectangle
+        Returns a string representation of the Rectangle object.
+
+        Returns:
+            str: The string representation of the rectangle in the format
+            '[Rectangle] width/height'.
         """
-        return "[{}] {}/{}".format(type(self).__name__,
-                                   self.__width, self.__height)
+        return f"[{type(self).__name__}] {self.__width}/{self.__height}"
