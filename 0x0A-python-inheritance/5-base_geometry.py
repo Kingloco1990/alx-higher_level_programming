@@ -12,4 +12,3 @@ class BaseGeometry:
     be subclassed.
     """
     pass
-
