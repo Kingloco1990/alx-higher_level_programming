@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This module provides a function for writing text to a file In.
+This module provides a function for writing text to a file.
 """
 
 
