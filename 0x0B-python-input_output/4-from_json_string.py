@@ -7,7 +7,8 @@ import json
 
 
 def from_json_string(my_str):
-    """Converts a JSON string to a Python object.
+    """
+    Converts a JSON string to a Python object.
 
     Args:
         my_str (str): A JSON string to be converted.
