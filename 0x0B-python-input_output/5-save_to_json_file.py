@@ -7,7 +7,8 @@ import json
 
 
 def save_to_json_file(my_obj, filename):
-    """Writes a Python object to a text file using JSON representation.
+    """
+    Writes a Python object to a text file using JSON representation.
 
     This function takes a Python object and a filename as input. It
     serializes the object into a JSON string and writes it to the
