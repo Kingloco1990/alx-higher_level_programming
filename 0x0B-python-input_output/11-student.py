@@ -54,6 +54,5 @@ class Student:
             in JSON format. It should contain the keys
             'first_name', 'last_name', and 'age'.
         """
-        self.first_name = json["first_name"]
-        self.last_name = json["last_name"]
-        self.age = json["age"]
+        for key, value in json.items():
+            setattr(self, key, value)
