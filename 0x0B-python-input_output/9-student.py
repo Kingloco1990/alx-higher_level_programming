@@ -1,12 +1,17 @@
 #!/usr/bin/python3
-"""Defines a class Student."""
+"""
+This module provides a class called Student for representing student objects.
+"""
 
 
 class Student:
-    """Represent a student."""
-
+    """
+    Represents a student with first name, last name, and age.
+    """
     def __init__(self, first_name, last_name, age):
-        """Initialize a new Student.
+        """
+        Initializes a new instance of the Student class.
+
         Args:
             first_name (str): The first name of the student.
             last_name (str): The last name of the student.
@@ -17,5 +22,10 @@ class Student:
         self.age = age
 
     def to_json(self):
-        """Get a dictionary representation of the Student."""
+        """
+        Converts the student object to a JSON-like dictionary.
+
+        Returns:
+            dict: A dictionary containing the student's attributes.
+        """
         return self.__dict__
