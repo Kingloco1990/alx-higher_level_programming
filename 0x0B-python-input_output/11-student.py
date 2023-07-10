@@ -2,8 +2,6 @@
 """
 This module provides a class called Student for representing student objects.
 """
-import os
-import sys
 
 
 class Student:
@@ -51,8 +49,8 @@ class Student:
 
         Args:
             json (dict): A dictionary representing the student object
-            in JSON format. It should contain the keys
-            'first_name', 'last_name', and 'age'.
+            in JSON format. It should contain the keys 'first_name',
+            'last_name', and 'age'.
         """
         for key, value in json.items():
             setattr(self, key, value)
