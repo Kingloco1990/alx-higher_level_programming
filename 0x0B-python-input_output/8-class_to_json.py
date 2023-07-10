@@ -1,7 +1,21 @@
 #!/usr/bin/python3
-"""Defines a Python class-to-JSON function."""
+"""
+This module provides a function for converting a class object to a
+JSON-compatible dictionary representation.
+"""
 
 
 def class_to_json(obj):
-    """Return the dictionary represntation of a simple data structure."""
-    return obj.__dict__
+    """
+    Convert a class object to a JSON-compatible dictionary representation.
+
+    Args:
+        obj (object): The class object to convert.
+
+    Returns:
+        dict: A dictionary representing the attributes of the object.
+    """
+    # Access the dictionary representation of the object's attributes
+    obj_dict = obj.__dict__
+    return obj_dict
+
