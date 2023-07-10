@@ -18,4 +18,3 @@ def class_to_json(obj):
     # Access the dictionary representation of the object's attributes
     obj_dict = obj.__dict__
     return obj_dict
-
