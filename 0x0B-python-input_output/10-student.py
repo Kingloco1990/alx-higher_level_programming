@@ -1,12 +1,17 @@
 #!/usr/bin/python3
-"""Defines a class Student."""
+"""
+This module provides a class called Student for representing student objects.
+"""
 
 
 class Student:
-    """Represent a student."""
-
+    """
+    Represents a student with first name, last name, and age.
+    """
     def __init__(self, first_name, last_name, age):
-        """Initialize a new Student.
+        """
+        Initializes a new instance of the Student class.
+
         Args:
             first_name (str): The first name of the student.
             last_name (str): The last name of the student.
@@ -17,13 +22,23 @@ class Student:
         self.age = age
 
     def to_json(self, attrs=None):
-        """Get a dictionary representation of the Student.
-        If attrs is a list of strings, represents only those attributes
-        included in the list.
-        Args:
-            attrs (list): (Optional) The attributes to represent.
         """
-        if (type(attrs) == list and
-                all(type(ele) == str for ele in attrs)):
-            return {k: getattr(self, k) for k in attrs if hasattr(self, k)}
+        Converts the student object to a JSON-compatible dictionary.
+
+        Args:
+            attrs (list, optional): A list of attributes to include in the
+                                    JSON representation. Defaults to None.
+
+        Returns:
+            dict: A dictionary representing the student object in JSON format.
+                If `attrs` is specified, only the specified attributes will be
+                included.
+                If `attrs` is None, all attributes will be included.
+        """
+        if (type(attrs) == list and all(type(i) == str for i in attrs)):
+            json_dict = {}
+            for attr in attrs:
+                if attr in self.__dict__:
+                    json_dict[attr] = self.__dict__[attr]
+            return json_dict
         return self.__dict__
