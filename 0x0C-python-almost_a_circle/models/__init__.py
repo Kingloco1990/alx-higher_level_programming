@@ -1,2 +1,3 @@
-"""Initializing the python model
+"""
+Initializing the python model
 """
