@@ -1,3 +1,2 @@
--- Write a script that lists all the tables of a database in your MySQL server.
-
-SHOW TABLES; -- List all tables.
+-- Lists all the tables of a database in my MySQL server.
+SHOW TABLES;
