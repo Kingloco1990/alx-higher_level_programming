@@ -15,8 +15,8 @@ if __name__ == '__main__':
     cur = db.cursor()
 
     # Execute the SQL query using format with user input
-    cur.execute(('SELECT * FROM states \
-        WHERE BINARY name = \'{}\' ORDER BY id ASC;').format(sys.argv[4]))
+    cur.execute("SELECT * FROM states \
+        WHERE BINARY name = '{}' ORDER BY id".format(sys.argv[4]))
 
     # Close the cursor and database connection
     cur.close()
