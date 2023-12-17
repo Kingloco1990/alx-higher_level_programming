@@ -18,7 +18,7 @@ if __name__ == '__main__':
 
     # Execute the SQL query to retrieve states starting with 'N'
     cur.execute(
-        "SELECT * FROM statesWHERE name LIKE BINARY 'N%' ORDER BY id;")
+        "SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id")
 
     # Fetch all the results (rows)
     states = cur.fetchall()
