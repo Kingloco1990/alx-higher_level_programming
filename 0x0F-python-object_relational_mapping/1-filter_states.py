@@ -13,12 +13,12 @@ if __name__ == '__main__':
     db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2],
                          db=sys.argv[3], port=3306)
 
-
     # Create a cursor object
     cur = db.cursor()
 
     # Execute the SQL query to retrieve states starting with 'N'
-    cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id;")
+    cur.execute(
+        "SELECT * FROM statesWHERE name LIKE BINARY 'N%' ORDER BY id;")
 
     # Fetch all the results (rows)
     states = cur.fetchall()
