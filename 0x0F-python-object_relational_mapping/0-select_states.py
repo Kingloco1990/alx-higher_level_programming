@@ -14,7 +14,7 @@ if __name__ == '__main__':
     cur = db.cursor()
 
     # Execute the SQL query to select all states
-    cur.execute("SELECT * FROM states;")
+    cur.execute("SELECT * FROM states ORDER BY states.id ASC")
 
     # Fetch all the rows
     states = cur.fetchall()
