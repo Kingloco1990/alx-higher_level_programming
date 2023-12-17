@@ -1,31 +1,32 @@
 #!/usr/bin/python3
-'''task 4 script'''
-
-import MySQLdb
+"""
+Lists all cities from the database hbtn_0e_4_usa.
+"""
 import sys
-
-
-def list_all():
-    '''lists all cities from db'''
-    username = sys.argv[1]
-    password = sys.argv[2]
-    db_name = sys.argv[3]
-    host = 'localhost'
-    port = 3306
-
-    db = MySQLdb.connect(host=host, user=username, passwd=password,
-                         db=db_name, port=port)
-    cur = db.cursor()
-    cur.execute('SELECT c.id, c.name, s.name FROM cities c LEFT ' +
-                'JOIN states s ON c.state_id = s.id ORDER BY c.id ASC;')
-    result = cur.fetchall()
-    cur.close()
-    db.close()
-
-    if result:
-        for row in result:
-            print(row)
-
+import MySQLdb
 
 if __name__ == '__main__':
-    list_all()
+    # Connect to the MySQL server
+    db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3], port=3306)
+
+    # Create a cursor object
+    cur = db.cursor()
+
+    # Execute the query to retrieve all cities with state information
+    cur.execute(
+        "SELECT cities.id, cities.name, states.name "
+        "FROM cities "
+        "JOIN states ON cities.state_id = states.id "
+        "ORDER BY cities.id"
+    )
+
+    # Fetch all the results
+    cities = cur.fetchall()
+
+    # Display the results
+    for city in cities:
+        print(city)
+
+    # Close the cursor and database connection
+    cur.close()
+    db.close()
