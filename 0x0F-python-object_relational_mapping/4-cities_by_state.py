@@ -7,7 +7,7 @@ import MySQLdb
 
 if __name__ == '__main__':
     # Connect to the MySQL server
-    db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], 
+    db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2],
                          db=sys.argv[3], port=3306)
 
     # Create a cursor object
@@ -15,9 +15,9 @@ if __name__ == '__main__':
 
     # Execute the query to retrieve all cities with state information
     cur.execute(
-        "SELECT cities.id, cities.name, states.name "
-        "FROM cities "
-        "JOIN states ON cities.state_id = states.id "
+        "SELECT cities.id, cities.name, states.name"
+        "FROM cities"
+        "JOIN states ON cities.state_id = states.id"
         "ORDER BY cities.id"
     )
 
