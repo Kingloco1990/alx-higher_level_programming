@@ -16,9 +16,11 @@ if __name__ == '__main__':
 
     # Create a cursor object
     cur = db.cursor()
-    
+
     # Execute the query with user input as parameters
-    cur.execute("SELECT * FROM states WHERE name = %s ORDER BY id", (sys.argv[4]))
+    # Use parameterized query to prevent SQL injection
+    cur.execute("SELECT * FROM states \
+        WHERE name = %s ORDER BY id", (sys.argv[4],))
 
     # Fetch all the results
     states = cur.fetchall()
