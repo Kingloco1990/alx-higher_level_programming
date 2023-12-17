@@ -1,35 +1,32 @@
 #!/usr/bin/python3
-'''script for task 3'''
+"""
+Takes in an argument and displays all values in the states table
+of hbtn_0e_0_usa where name matches the argument.
 
-import MySQLdb
+This script prevents SQL injections.
+"""
+
 import sys
-
-
-def secure_fetch():
-    ''' a safer way to displays all values in the states table of hbtn_0e_0_usa
-        where name matches the argument passed to the script
-    '''
-    username = sys.argv[1]
-    password = sys.argv[2]
-    db_name = sys.argv[3]
-    state_name = sys.argv[4]
-    host = 'localhost'
-    port = 3306
-
-    db = MySQLdb.connect(host=host, user=username, passwd=password,
-                         db=db_name, port=port)
-    cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE name = %s ORDER BY id ASC;",
-                [state_name])
-
-    result = cur.fetchall()
-    cur.close()
-    db.close()
-
-    if result:
-        for row in result:
-            print(row)
-
+import MySQLdb
 
 if __name__ == '__main__':
-    secure_fetch()
+    # Connect to the MySQL server
+    db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2],
+                         db=sys.argv[3], port=3306)
+
+    # Create a cursor object
+    cur = db.cursor()
+    
+    # Execute the query with user input as parameters
+    cur.execute("SELECT * FROM states WHERE name = %s ORDER BY id", (sys.argv[4]))
+
+    # Fetch all the results
+    states = cur.fetchall()
+
+    # Display the results
+    for state in states:
+        print(state)
+
+    # Close the cursor and database connection
+    cur.close()
+    db.close()
