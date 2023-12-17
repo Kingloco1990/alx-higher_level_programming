@@ -16,7 +16,7 @@ if __name__ == '__main__':
 
     # Execute the SQL query using format with user input
     cur.execute("SELECT * FROM states \
-        WHERE name = '{}' ORDER BY id".format(sys.argv[4]))
+        WHERE BINARY name = '{}' ORDER BY id".format(sys.argv[4]))
 
     # Fetch all the results
     states = cur.fetchall()
