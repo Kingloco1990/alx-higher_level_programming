@@ -27,9 +27,7 @@ if __name__ == '__main__':
     cities = cur.fetchall()
 
     # Display the results
-    if cities:
-        city_names = ', '.join(city[0] for city in cities)
-        print(city_names)
+    print(', '.join(map(lambda x: x[0], cities)))
 
     # Close the cursor and database connection
     cur.close()
