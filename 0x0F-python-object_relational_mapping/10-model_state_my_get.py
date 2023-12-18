@@ -24,7 +24,7 @@ if __name__ == '__main__':
     session = Session()
 
     # Query for the State object with the provided name
-    state = session.query(State).filter(State.name == state_name)
+    state = session.query(State).filter(State.name == state_name).first()
 
     # Display the result
     if state:
