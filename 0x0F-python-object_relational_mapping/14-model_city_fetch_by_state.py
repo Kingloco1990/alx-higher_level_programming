@@ -17,6 +17,9 @@ if __name__ == '__main__':
                            .format(username, password, db_name),
                            pool_pre_ping=True)
 
+    # Create the necessary tables in the database if not already present
+    Base.metadata.create_all(engine)
+
     # Create a Session class for interacting with the database
     Session = sessionmaker(bind=engine)
 
