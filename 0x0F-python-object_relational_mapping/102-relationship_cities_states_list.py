@@ -1,21 +1,31 @@
 #!/usr/bin/python3
-""" Script that lists all City objects from the database hbtn_0e_101_usa """
+"""
+Lists all City objects from the database hbtn_0e_101_usa.
+"""
+import sys
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from relationship_state import State, Base
+from relationship_city import City
 
-if __name__ == "__main__":
+if __name__ == '__main__':
+    # Get database credentials from command line arguments
+    username, password, db_name = sys.argv[1:4]
 
-    import sys
-    from sqlalchemy.schema import Table
-    from relationship_city import Base, City
-    from relationship_state import State
-    from sqlalchemy import create_engine
-    from sqlalchemy.orm import Session
-
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format
-                           (sys.argv[1], sys.argv[2], sys.argv[3]),
+    # Create an engine to connect to the database
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
+                           .format(username, password, db_name),
                            pool_pre_ping=True)
     Base.metadata.create_all(engine)
+    Session = sessionmaker(bind=engine)
+    session = Session()
 
-    s = Session(engine)
-    for city in s.query(City).order_by(City.id).all():
-        print("{}: {} -> {}".format(city.id, city.name, city.state.name))
-    s.close()
+    # Query for all City objects with related State, sorted by cities.id
+    cities_states = session.query(City).order_by(City.id).all()
+
+    # Print the results
+    for city in cities_states:
+        print('{}: {} -> {}'.format(city.id, city.name, city.state.name))
+
+    # Close the session
+    session.close()
