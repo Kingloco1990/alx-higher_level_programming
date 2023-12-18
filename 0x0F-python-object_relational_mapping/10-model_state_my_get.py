@@ -1,32 +1,36 @@
 #!/usr/bin/python3
-'''task 10 script'''
-
-from model_state import Base, State
+"""
+Prints the State object with the name passed as an argument
+from the database hbtn_0e_6_usa.
+"""
+import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-import sys
-
+from model_state import Base, State
 
 if __name__ == '__main__':
-    username = sys.argv[1]
-    password = sys.argv[2]
-    db_name = sys.argv[3]
-    state_name = sys.argv[4]
-    host = 'localhost'
-    port = '3306'
+    # Get command line arguments
+    username, password, db_name, state_name = sys.argv[1:5]
 
-    engine = create_engine('mysql+mysqldb://{}:{}@{}:{}/{}'.format(
-                           username, password, host, port, db_name),
+    # Create an engine to interact with the database
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
+                           .format(username, password, db_name),
                            pool_pre_ping=True)
-    Session = sessionmaker(bind=engine)
-    local_session = Session()
-    result = local_session.query(State).filter(
-                            State.name.like(state_name)
-                            ).first()
-    local_session.close()
-    engine.dispose()
 
-    if result:
-        print(result.id)
+    # Create a configured "Session" class
+    Session = sessionmaker(bind=engine)
+
+    # Create a Session instance
+    session = Session()
+
+    # Query for the State object with the provided name
+    state = session.query(State).filter(State.name == state_name)
+
+    # Display the result
+    if state:
+        print(state.id)
     else:
-        print('Not found')
+        print("Not found")
+
+    # Close the session
+    session.close()
