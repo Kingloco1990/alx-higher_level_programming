@@ -19,7 +19,6 @@ class City(Base):
         id (int): An auto-generated, unique integer serving as
         the primary key.
 
-
         name (str): A string column with a maximum length of 256 characters,
         cannot be null.
 
