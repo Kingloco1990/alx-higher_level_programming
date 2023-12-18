@@ -13,7 +13,7 @@ Base = declarative_base()
 # Define the State class, which inherits from Base
 class City(Base):
     """
-   Represents the City class corresponding to the 'cities' table
+    Represents the City class corresponding to the 'cities' table
     in the database.
 
     Attributes:
