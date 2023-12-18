@@ -5,8 +5,8 @@ Prints all City objects from the database hbtn_0e_14_usa.
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from model_city import City, Base
-from model_state import State
+from model_state import Base, State
+from model_city import City
 
 if __name__ == '__main__':
     # Get database credentials from command line arguments
@@ -17,9 +17,6 @@ if __name__ == '__main__':
                            .format(username, password, db_name),
                            pool_pre_ping=True)
 
-    # Create the necessary tables in the database if not already present
-    Base.metadata.create_all(engine)
-
     # Create a Session class for interacting with the database
     Session = sessionmaker(bind=engine)
 
@@ -27,7 +24,7 @@ if __name__ == '__main__':
     session = Session()
 
     # Query for City objects and display the results
-    cities = session.query(State, City).filter(State.id == City.state_id)\
+    cities = session.query(City, State).filter(City.state_id == State.id)\
                     .order_by(City.id).all()
 
     # Print the results
