@@ -28,8 +28,8 @@ if __name__ == '__main__':
                     .order_by(City.id).all()
 
     # Print the results
-    for row in cities:
-        print('{}: ({}) {}'.format(row[0].name, row[1].id, row[1].name))
+    for state, city in cities:
+        print('{}: ({}) {}'.format(state.name, city.id, city.name))
 
     # Close the session
     session.close()
