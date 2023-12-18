@@ -13,16 +13,16 @@ Base = declarative_base()
 # Define the State class, which inherits from Base
 class City(Base):
     """
-    Represents the State class corresponding to the 'states' table
+   Represents the City class corresponding to the 'cities' table
     in the database.
 
     Attributes:
         id (int): An auto-generated, unique integer serving as
         the primary key.
 
-        name (str): A string column with a maximum length of 128 characters,
+        name (str): A string column with a maximum length of 256 characters,
         cannot be null.
-        
+
         state_id (int): An integer column representing the foreign key
         referencing the 'id' column in the 'states' table.
     """
