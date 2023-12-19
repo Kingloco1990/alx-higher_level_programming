@@ -32,4 +32,4 @@ class City(Base):
     # Define columns for the 'states' table
     id = Column(Integer, primary_key=True, nullable=False, unique=True)
     name = Column(String(128), nullable=False)
-    states_id = Column(Integer, ForeignKey('states.id'), nullable=False)
+    state_id = Column(Integer, ForeignKey('states.id'), nullable=False)
