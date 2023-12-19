@@ -24,7 +24,7 @@ if __name__ == '__main__':
     session = Session()
 
     # Query for City objects and display the results
-    cities = session.query(State, City).filter(State.id == City.states_id)\
+    cities = session.query(State, City).filter(State.id == City.state_id)\
                     .order_by(City.id).all()
 
     # Print the results
