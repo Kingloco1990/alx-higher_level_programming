@@ -2,12 +2,8 @@
 """
 Defines the City class and inherites from SQLAlchemy Base.
 """
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, ForeignKey
-
-# Create an instance of the declarative base class
-Base = declarative_base()
-
+from relationship_state import Base
 
 # Define the State class, which inherits from Base
 class City(Base):
