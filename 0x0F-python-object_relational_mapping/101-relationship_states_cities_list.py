@@ -21,7 +21,8 @@ if __name__ == '__main__':
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    # Query for all State objects with cities, sorted by states.id and cities.id
+    # Query for all State objects with cities
+    # Sort by states.id and cities.id
     states_cities = session.query(State).order_by(State.id).all()
 
     # Print the results
