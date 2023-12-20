@@ -6,7 +6,7 @@ in the database hbtn_0e_100_usa.
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from relationship_state import State, Base
+from relationship_state import Base, State
 from relationship_city import City
 
 if __name__ == '__main__':
@@ -17,12 +17,20 @@ if __name__ == '__main__':
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
                            .format(username, password, db_name),
                            pool_pre_ping=True)
+    
+    # Create all tables defined in the metadata for the provided database engine.
     Base.metadata.create_all(engine)
+    
+    # Create a Session class for interacting with the database
     Session = sessionmaker(bind=engine)
+    
+    # Establish a new session to execute queries
     session = Session()
 
-    # Create California State and San Francisco City
+    # Create State "California" with City "San Francisco"
     california = State(name='California', cities=[City(name='San Francisco')])
+
+    # Add the State to the session and commit change
     session.add(california)
     session.commit()
 
