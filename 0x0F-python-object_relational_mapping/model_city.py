@@ -26,7 +26,7 @@ class City(Base):
     # Define the name of the corresponding database table
     __tablename__ = 'cities'
 
-    # Define columns for the 'states' table
+    # Define columns for the 'cities' table
     id = Column(Integer, primary_key=True, nullable=False, unique=True)
     name = Column(String(128), nullable=False)
     state_id = Column(Integer, ForeignKey('states.id'), nullable=False)
