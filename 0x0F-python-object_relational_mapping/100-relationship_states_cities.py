@@ -17,13 +17,13 @@ if __name__ == '__main__':
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
                            .format(username, password, db_name),
                            pool_pre_ping=True)
-    
-    # Create all tables defined in the metadata for the provided database engine.
+
+    # Create tables based on defined metadata for the specified database engine
     Base.metadata.create_all(engine)
-    
+
     # Create a Session class for interacting with the database
     Session = sessionmaker(bind=engine)
-    
+
     # Establish a new session to execute queries
     session = Session()
 
