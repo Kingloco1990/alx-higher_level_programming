@@ -2,8 +2,9 @@
 """
 Defines the City class and inherites from SQLAlchemy Base.
 """
-from sqlalchemy import Column, Integer, String, ForeignKey
 from relationship_state import Base
+from sqlalchemy import Column, Integer, String, ForeignKey
+
 
 # Define the State class, which inherits from Base
 class City(Base):
