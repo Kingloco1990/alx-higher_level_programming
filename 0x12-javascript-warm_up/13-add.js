@@ -1,2 +1,5 @@
 #!/usr/bin/node
-exports.add = (a, b) => a + b;
+// Define and export the add function
+exports.add = function(a, b) {
+    return a + b;
+};
