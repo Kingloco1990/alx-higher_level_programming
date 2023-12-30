@@ -1,16 +1,13 @@
 #!/usr/bin/node
-
 function add (a, b) {
-  /**
-     * Prints the addition of two integers
-     * Args:
-     *  a(integer): the first argument is the first integer
-     *  b(integer): the second argument is the second integer
-     */
-  a = parseInt(process.argv[2]);
-  b = parseInt(process.argv[3]);
-  const result = a + b;
-  console.log(result);
+  return (a + b);
 }
 
-add(10, 30);
+const numA = parseInt(process.argv[2]);
+const numB = parseInt(process.argv[3]);
+
+if (isNaN(numA) || isNaN(numB)) {
+  console.log('NaN');
+} else {
+  console.log(add(numA, numB));
+}
