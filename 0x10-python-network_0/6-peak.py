@@ -14,7 +14,8 @@ def find_peak(list_of_integers):
         list_of_integers (list): The list of unsorted integers.
 
     Returns:
-        int or None: The peak element in the list, or None if the list is empty.
+        int or None: The peak element in the list,
+        or None if the list is empty.
     """
     # Check if the list is empty
     if list_of_integers == []:
