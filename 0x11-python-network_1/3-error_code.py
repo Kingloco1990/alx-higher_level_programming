@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """
 This script takes in a URL, sends a request to the URL, and displays the body
-of the response (decoded in utf-8). It handles urllib.error.HTTPError exceptions
-and prints the corresponding HTTP status code in case of an error.
+of the response (decoded in utf-8). It handles urllib.error.HTTPError
+exceptions and prints the corresponding HTTP status code in case of an error.
 """
 
 import urllib.error
