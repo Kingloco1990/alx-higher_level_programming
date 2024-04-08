@@ -1,18 +1,23 @@
-#!/usr/bin/python3
-"""Sends a request to a given URL and displays the response body.
-
-Usage: ./7-error_code.py <URL>
-  - Handles HTTP errors.
 """
-import sys
+This script takes in a URL as a command-line argument, sends
+a GET request to the URL, and displays the body of the response.
+If the HTTP status code is greater than or equal to 400, it prints
+an error message with the status code.
+"""
 import requests
+import sys
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
+    # Extract the URL from the command-line arguments
     url = sys.argv[1]
 
-    r = requests.get(url)
-    if r.status_code >= 400:
-        print("Error code: {}".format(r.status_code))
+    # Send a GET request to the specified URL
+    response = requests.get(url)
+
+    # Check if the status code is greater than or equal to 400
+    if response.status_code >= 400:
+        # Print an error message with the status code
+        print("Error code:", response.status_code)
     else:
-        print(r.text)
+        # Print the body of the response
+        print(response.text)
