@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 This script takes in a URL as a command-line argument, sends
 a GET request to the URL, and displays the body of the response.
