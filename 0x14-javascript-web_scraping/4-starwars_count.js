@@ -22,7 +22,7 @@ request(apiUrl, function (error, response, body) {
   if (data.results) {
     // Filter the films to count how many include the character "Wedge Antilles" (character ID 18)
     const count = data.results.filter(film =>
-      film.characters.includes('https://swapi-api.alx-tools.com/api/people/18/')
+      film.characters.includes('/people/18/')
     ).length;
 
     // Log the count to the console
