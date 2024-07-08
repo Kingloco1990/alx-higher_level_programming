@@ -20,10 +20,14 @@ request(apiUrl, function (error, response, body) {
 
   // Check if the response contains films
   if (data.results) {
-    // Filter the films to count how many include the character "Wedge Antilles" (character ID 18)
-    const count = data.results.filter(film =>
-      film.characters.includes('/people/18/')
-    ).length;
+    // Use the reduce method to count how many films include the character "Wedge Antilles" (character ID 18)
+    const count = data.results.reduce((acc, film) => {
+      if (film.characters.includes('https://swapi-api.alx-tools.com/api/people/18/') ||
+          film.characters.includes('http://swapi.co/api/people/18/')) {
+        return acc + 1;
+      }
+      return acc;
+    }, 0);
 
     // Log the count to the console
     console.log(count);
